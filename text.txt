@@ -1,0 +1,16 @@
+1-start with creating two folder 
+	frontend,backend
+2-run npm init -y
+3-node package->script->helps you to run , start ,build your app
+4-npm install express mongoose dotenv
+using express -> as web framework
+moongose->interact with db
+dotenv: access dotenv environment variables.
+5-backend->server.js-.import express but to use this 
+6-VERY IMPORTANT: go to node package and add "type":module
+7-How to run your node app?
+    1-in your terminal write node back (and press tab it will autocomplete), ser(tab, it will be autocompleted)
+    2-or in your nodepackage -> script ->"dev":"node backend/server"
+    now you can run your app as npm run dev
+8-now whenever you will make any changes in your server it wont reflect until you refresh
+so for that download npm i nodemon -D
