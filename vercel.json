@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
+  
   "startCommand": "npm run start",
   "outputDirectory": "frontend/frontend/dist",
   "framework": null,
