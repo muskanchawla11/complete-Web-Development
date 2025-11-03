@@ -1,0 +1,69 @@
+->starting with frontend
+->as we want different pages
+so we will be installing npm i react-router-dom
+
+you are gonna be having nav bar for all routes as it is above routes
+we are using a react icon to use it we have to write : npm i react-icons
+
+Now the issue you : you have to pass props to each and every child 
+but lets say your last child needs parent props
+so it will cause prop drilling
+
+we will be using zustand
+1-install it 
+npm i zustand
+
+
+
+
+
+your frontend us running on 5173 and backend on 5000
+so when you will deploy them you have to deploy both on two different servers
+so can we do something in which we can bring them to a single domain?
+
+step 1 : import path fron "path"
+this helps to combine file paths correctly
+step2:const _dirname=path.resolve
+in react when we use import instead require _dirname is not automatically available
+step3:below the routes check the environment
+if(process.env.NODE_ENV==="production")
+
+we want out frontend folder to be our static assests
+so when you run your react app , you run as npm run build
+it creates a dist folder
+
+
+this folder we will be using in production for  react application that we have
+now we have to make dist as out static asset folder
+if(process.env.NODE_ENV==="production"){
+    app.use(express.static(path.join(_dirname,"/frontend/frontend/dist")))
+
+}
+
+any other file then render react
+
+
+once you have delete the nodemodule in your main pacakge json
+under script 
+"build":"npm install && npm install --prefix frontend && npm run build --prefix frontend
+you are asking to install nodemodule for both frontend and backend and then building your react app
+
+run npm run build to get node module and to build your app
+"start":"node backend/server.js
+used node instead of nodemon as its gonna be just running once
+
+
+one last and important step is NODE_ENV is not set to production
+"scripts": {
+    "dev": "NODE_ENV=development nodemon backend/server.js",
+    "build": "npm install && npm install --prefix frontend/frontend && npm run build --prefix frontend/frontend",
+    "start": "NODE_ENV=production node backend/server.js"
+
+  },
+
+
+  npm install cross-env --save-dev
+
+how to not add .env
+bring your git ingnode file in root folder
+put .env in it

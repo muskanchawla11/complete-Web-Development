@@ -14,3 +14,45 @@ dotenv: access dotenv environment variables.
     now you can run your app as npm run dev
 8-now whenever you will make any changes in your server it wont reflect until you refresh
 so for that download npm i nodemon -D
+
+9-connecting with db:
+    1-go to mongodb->login->create new project->next->next->driver->you will get a password make sure you copy it somewhere->on next page you will get connection string copy it as well
+    2-now create .env and paste 
+    MONGO_URI=mongodb+srv://muskanchawla115_db_user:<5WthWzUJRYll9ifV>@cluster0.crag4la.mongodb.net/Products?retryWrites=true&w=majority&appName=Cluster0
+    you have to add password that you copied earlier
+    YOU HAVE TO GIVE A NAME TO YOUR DATABASE : BEFORE ? WRITE DB NAME
+    NEXT STEP IS GO TO NETWORK ACCESS-> you will see your ip address(it might change so it wont help you to connect to your db)-> go to add ip address->allow access from anywhere and its done
+
+10-you want to print your env url?
+    console.log(process.env.MONGO_URI)
+    it will give undefined
+    so you need to import import dotenv from "dotenv"; to make it work
+
+11-next step: create a folder(config) in that create a file (db.js)
+    in this file we are creating connection with moongose
+    in your server.js file -> call connectDB() function to establish connection but make sure you import {connectDb}
+
+IMPORTANT NOTE AND MISTAKES:
+1-in your mongo_url you dont have to wrap your password inside <>
+2-when you are exporting file , file in which you are importing it use import filename from
+3-but when you are using named export then you have to use import {variable name} from filename
+
+Tables vs collections
+mysql,sqp->data in form of Tables
+no-sql:collections which can have multiple data
+
+12-create product.model.js: create schema
+
+13-API->APPLICATION PROGRAMMING INTERFACE
+
+14- you have app written 5 times you want to modify all of them together , you can click on ctrl d, if you have 4 times app written you have to click ctrl d 4 times
+
+15-Now what you did is : earlier you were having a single file server.js where you were putting router now you have created a seperate file to put all your routers
+changes that you have made and why?
+    1-creating a instance of router : express.Router()
+    2-instead of app.get you will be using router.get
+    3-in your server.js file you will be having a single line : app.use("api/product",productRoutes)
+    which has the prefix that all route will have and the file name
+    4-so now if your route is /api/product you dont have to write this, you can write "/" as prefix was mentioned in app.use
+
+IMPORTANT : WHY MOONGOSE ? TO COMMUNICATE WITH DATABASE
